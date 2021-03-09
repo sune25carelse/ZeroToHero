@@ -1,21 +1,18 @@
 import React from "react";
 import "./App.css";
+import Product from "./Product";
 
 function App() {
-  const name = "sonny";
-  const isMale = true;
-
-  function getGreeting(user) {
-    if (user) {
-      return <h1>Hello, {user}!</h1>;
-    }
-    return <h1>Hello, Stranger.</h1>;
-  }
-
   return (
-    <div className="app">
-      {getGreeting("Luca")}
-      <h2>You are a {isMale ? "Male" : "female"}</h2>
+    <div>
+      <h1>Hello Luca</h1>
+      <Product name="Amazon Echo" description="Ai assistant" price={59.99} />
+      <Product
+        name="Huawei P40 Pro"
+        description="Best Smartphone"
+        price={129.99}
+      />
+      <Product name="Predator" description="Gaming Laptop" price={39.99} />
     </div>
   );
 }
