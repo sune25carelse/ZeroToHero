@@ -4,7 +4,12 @@ import "./App.css";
 import Product from "./Product";
 
 function App() {
-  const [todos, setTodo] = useState(["watch netfli", "play ps4"]);
+  const [todos, setTodo] = useState([]);
+  const [input, setInput] = useState("");
+  const addTodo = (e) => {
+    setTodo([...todos, input]);
+    setInput("");
+  };
 
   return (
     <div className="app">
@@ -18,13 +23,17 @@ function App() {
 
       <Product name="Predator" description="Gaming Laptop" price={39.99} />
 
-      <input type="text" />
-      <button>Add todo</button>
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        type="text"
+      />
+      <button onClick={addTodo}>Add todo</button>
 
       <h2>List todos</h2>
-      {todos.map(todo => {
-        <p>{todo}</p>;
-      })}
+      {todos.map((todo) => (
+        <p>{todo}</p>
+      ))}
     </div>
   );
 }
