@@ -5,12 +5,11 @@ import Product from "./Product";
 
 function App() {
   const [todos, setTodo] = useState([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(""); // prepare state
 
   const addTodo = (e) => {
-    
     e.preventDefault(); // prevent refresh
-    setTodo([...todos, input]);
+    setTodo([...todos, input]); // then list of todos
     setInput("");
   };
 
