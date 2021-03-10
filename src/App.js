@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import "./App.css";
 import Product from "./Product";
@@ -6,6 +7,27 @@ import Product from "./Product";
 function App() {
   const [todos, setTodo] = useState([]);
   const [input, setInput] = useState(""); // prepare state
+  const [randomNr, setRandomNr] = useState(Math.floor(Math.random() * 101));
+
+  const [test, setTest] = useState("whoops");
+
+  useEffect(() => {
+    if (randomNr < 50) {
+      console.log("render");
+    }
+  });
+
+  useEffect(() => {
+    const testing = () => {
+      console.log("render");
+    };
+
+    testing();
+  });
+
+  useEffect(() => {
+    console.log("render");
+  });
 
   const addTodo = (e) => {
     e.preventDefault(); // prevent refresh
