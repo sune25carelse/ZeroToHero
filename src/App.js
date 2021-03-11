@@ -1,39 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import "./App.css";
 import Product from "./Product";
+import useRandomJoke from "./useRandomJoke";
 
 function App() {
-  const [todos, setTodo] = useState([]);
-  const [input, setInput] = useState(""); // prepare state
-  const [randomNr, setRandomNr] = useState(Math.floor(Math.random() * 101));
-
-  const [test, setTest] = useState("whoops");
-
-  useEffect(() => {
-    if (randomNr < 50) {
-      console.log("render");
-    }
-  });
-
-  useEffect(() => {
-    const testing = () => {
-      console.log("render");
-    };
-
-    testing();
-  });
-
-  useEffect(() => {
-    console.log("render");
-  });
-
-  const addTodo = (e) => {
-    e.preventDefault(); // prevent refresh
-    setTodo([...todos, input]); // then list of todos
-    setInput("");
-  };
+  const joke = useRandomJoke("Sune", "Arlene");
+  // const [joke, setJoke] = useState("");
 
   return (
     <div className="app">
@@ -46,20 +18,10 @@ function App() {
       />
 
       <Product name="Predator" description="Gaming Laptop" price={39.99} />
-      <form>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          type="text"
-        />
-        <button type="submit" onClick={addTodo}>
-          Add todo
-        </button>
-      </form>
-      <h2>List todos</h2>
-      {todos.map((todo) => (
-        <p>{todo}</p>
-      ))}
+
+      <h2>The Joke Generator</h2>
+      <h3>{joke}</h3>
+      <button>Generate Joke</button>
     </div>
   );
 }
