@@ -1,23 +1,22 @@
 import React from "react";
 import "./App.css";
-import Input from "./Input";
-import TodoItem from "./TodoItem";
 // import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 function App() {
-  const todoList = useState();
+  const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
+
   return (
     <div className="app">
-      <div className="app__container">
-        <div className="app__todoContainer">
-          {todoList.map((item) => (
-            <TodoItem name={item.item} done={item.done} id={item.id} />
-          ))}
-        </div>
+      <h1>Hello VanWykDev</h1>
+      <input />
+      <button>Add todo</button>
 
-        <Input />
-      </div>
+      <ul>
+        {todos.map((todo) => (
+          <li>{todo}</li>
+        ))}
+      </ul>
     </div>
   );
 }
