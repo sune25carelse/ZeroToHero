@@ -1,11 +1,24 @@
 import React from "react";
+import { useRef } from "react";
+import { useState } from "react";
 import "./App.css";
 import Product from "./Product";
 import useRandomJoke from "./useRandomJoke";
 
 function App() {
-  const joke = useRandomJoke("Sune", "Arlene");
-  // const [joke, setJoke] = useState("");
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const joke = useRandomJoke(firstName, lastName);
+
+  const generateJoke = (e) => {
+    e.preventDefault();
+    setFirstName(firstNameRef.current.value);
+    setLastName(lastNameRef.current.value);
+  };
 
   return (
     <div className="app">
@@ -21,7 +34,12 @@ function App() {
 
       <h2>The Joke Generator</h2>
       <h3>{joke}</h3>
-      <button>Generate Joke</button>
+
+      <form>
+        <input placeholder="firstName" ref={firstNameRef} />
+        <input placeholder="lastName" ref={lastNameRef} />
+        <button onClick={generateJoke}></button>
+      </form>
     </div>
   );
 }
