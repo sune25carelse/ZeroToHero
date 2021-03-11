@@ -38,7 +38,7 @@ function App() {
       <form>
         <input placeholder="firstName" ref={firstNameRef} />
         <input placeholder="lastName" ref={lastNameRef} />
-        <button onClick={generateJoke}></button>
+        <button onClick={generateJoke}>Generate Joke</button>
       </form>
     </div>
   );
