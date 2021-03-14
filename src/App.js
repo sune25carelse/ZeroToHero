@@ -6,7 +6,9 @@ import { useState } from "react";
 function App() {
   const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
   const [input, setInput] = useState("");
-  const addTodo = (event) => {};
+  const addTodo = (event) => {
+    setTodos([...todos, input]);
+  };
 
   return (
     <div className="app">
