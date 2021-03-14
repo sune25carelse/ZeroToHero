@@ -5,12 +5,14 @@ import { useState } from "react";
 
 function App() {
   const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
+  const [input, setInput] = useState("");
+  const addTodo = (event) => {};
 
   return (
     <div className="app">
       <h1>Hello VanWykDev</h1>
-      <input />
-      <button>Add todo</button>
+      <input value={input} onChange={(event) => setInput(event.target.value)} />
+      <button onClick={addTodo}>Add todo</button>
 
       <ul>
         {todos.map((todo) => (
