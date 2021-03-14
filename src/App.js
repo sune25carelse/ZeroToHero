@@ -7,8 +7,9 @@ function App() {
   const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
   const [input, setInput] = useState("");
   const addTodo = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // stop the refresh
     setTodos([...todos, input]);
+    setInput(""); // clear up the input after click
   };
 
   return (
