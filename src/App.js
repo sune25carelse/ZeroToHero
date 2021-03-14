@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 // import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { Button } from "@material-ui/core";
 
 function App() {
   const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
@@ -21,9 +22,15 @@ function App() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
-        <button type="submit" onClick={addTodo}>
+        <Button
+          disabled={!input}
+          type="submit"
+          onClick={addTodo}
+          variant="contained"
+          color="primary"
+        >
           Add todo
-        </button>
+        </Button>
       </form>
       <ul>
         {todos.map((todo) => (
