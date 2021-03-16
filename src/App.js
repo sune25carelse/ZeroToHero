@@ -4,10 +4,20 @@ import "./App.css";
 import { useState } from "react";
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
 import Todo from "./Todo";
+import { useEffect } from "react";
+import db from "./firebase";
 
 function App() {
-  const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
+  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+
+  // when app loads  we need to listen to db and fetch new todo as we add and remov
+  useEffect(() => {
+    db.collection("todos").onSnapshot((snapshot) => {
+      setTodos(snapshot.docs.map((doc) => doc.data().todo));
+    });
+  }, []);
+
   const addTodo = (event) => {
     event.preventDefault(); // stop the refresh
     setTodos([...todos, input]);
