@@ -14,9 +14,11 @@ function App() {
 
   // when app loads  we need to listen to db and fetch new todo as we add and remov
   useEffect(() => {
-    db.collection("todos").onSnapshot((snapshot) => {
-      setTodos(snapshot.docs.map((doc) => doc.data().text)); // this
-    });
+    db.collection("todos")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setTodos(snapshot.docs.map((doc) => doc.data().text)); // this
+      });
   }, []);
 
   const addTodo = (event) => {
@@ -31,7 +33,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <h1>Hello VanWykDev 🚀🚀</h1>
 
       <form>
