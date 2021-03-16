@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<!-- Project Console: https://console.firebase.google.com/project/todo-app-zth/overview -->
+<!-- Hosting URL: https://todo-app-zth.web.app -->
 ## Available Scripts
 
 In the project directory, you can run:
