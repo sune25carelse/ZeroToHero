@@ -14,7 +14,7 @@ function App() {
   // when app loads  we need to listen to db and fetch new todo as we add and remov
   useEffect(() => {
     db.collection("todos").onSnapshot((snapshot) => {
-      setTodos(snapshot.docs.map((doc) => doc.data().todo));
+      setTodos(snapshot.docs.map((doc) => doc.data().text)); // this 
     });
   }, []);
 
