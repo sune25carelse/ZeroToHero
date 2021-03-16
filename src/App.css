@@ -1,11 +1,12 @@
-/* .app {
+.app {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(168, 173, 182);
+  background-color: rgb(170, 197, 248);
   display: grid;
   place-items: center;
-}
 
+}
+/* 
 .app__container {
   height: 700px;
   width: 500px;

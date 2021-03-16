@@ -3,6 +3,7 @@ import "./App.css";
 // import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
+import Todo from "./Todo";
 
 function App() {
   const [todos, setTodos] = useState(["play ps4", "learn with sonny"]);
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Hello VanWykDev</h1>
+      <h1>Hello VanWykDev 🚀🚀</h1>
 
       <form>
         <FormControl>
@@ -38,7 +39,8 @@ function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <Todo text={todo} />
+          // <li>{todo}</li>
         ))}
       </ul>
     </div>
