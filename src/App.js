@@ -27,7 +27,7 @@ function App() {
     event.preventDefault(); // stop the refresh
 
     db.collection("todos").add({
-      text: input,
+      text: input.toUpperCase(1),
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
