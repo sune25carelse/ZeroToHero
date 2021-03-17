@@ -53,7 +53,7 @@ function Todo(props) {
             value={input}
             onChange={(event) => setInput(event.target.value)}
           />
-          <Button onClick={(e) => setOpen(false)}>Update Todo</Button>
+          <Button onClick={updateTodo}>Update Todo</Button>
         </div>
       </Modal>
       <div className="todo">

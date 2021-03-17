@@ -18,7 +18,7 @@ function App() {
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         setTodos(
-          snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data().text }))
+          snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data().todo }))
         ); // this
       });
   }, []);
@@ -27,7 +27,7 @@ function App() {
     event.preventDefault(); // stop the refresh
 
     db.collection("todos").add({
-      text: input.toUpperCase(1),
+      todo: input.toUpperCase(1),
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
