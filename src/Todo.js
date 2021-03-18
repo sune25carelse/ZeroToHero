@@ -12,6 +12,7 @@ import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import db from "./firebase";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import FlipMove from "react-flip-move";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -58,19 +59,21 @@ function Todo(props) {
       </Modal>
       <div className="todo">
         <List>
-          <ListItem>
-            <ListItemAvatar></ListItemAvatar>
-            <ListItemText
-              primary={props.todo.todo}
-              secondary="Dummy-time⏰⏰"
+          <FlipMove>
+            <ListItem>
+              <ListItemAvatar></ListItemAvatar>
+              <ListItemText
+                primary={props.todo.todo}
+                secondary="Dummy-time⏰⏰"
+              />
+            </ListItem>
+            <button onClick={(e) => setOpen(true)}>Edit</button>
+            <DeleteForeverIcon
+              onClick={(event) =>
+                db.collection("todos").doc(props.todo.id).delete()
+              }
             />
-          </ListItem>
-          <button onClick={(e) => setOpen(true)}>Edit</button>
-          <DeleteForeverIcon
-            onClick={(event) =>
-              db.collection("todos").doc(props.todo.id).delete()
-            }
-          />
+          </FlipMove>
         </List>
       </div>
     </>

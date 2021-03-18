@@ -7,6 +7,7 @@ import Todo from "./Todo";
 import { useEffect } from "react";
 import db from "./firebase";
 import firebase from "firebase";
+import FlipMove from "react-flip-move";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -57,13 +58,15 @@ function App() {
           Add todo
         </Button>
       </form>
-      <ul>
-        {todos.map((todo) => (
-          <Todo todo={todo} />
+      <FlipMove>
+        <ul>
+          {todos.map((todo) => (
+            <Todo todo={todo} />
 
-          // <li>{todo}</li>
-        ))}
-      </ul>
+            // <li>{todo}</li>
+          ))}
+        </ul>
+      </FlipMove>
     </div>
   );
 }
