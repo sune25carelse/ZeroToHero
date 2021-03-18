@@ -37,27 +37,29 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Hello VanWykDev 🚀🚀</h1>
+      <div className="app__container">
+        <h1>Hello VanWykDev 🚀🚀</h1>
 
-      <form>
-        <FormControl>
-          <InputLabel>✅Write a Todo</InputLabel>
-          <Input
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-          />
-        </FormControl>
+        <form>
+          <FormControl>
+            <InputLabel>✅Write a Todo</InputLabel>
+            <Input
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+            />
+          </FormControl>
 
-        <Button
-          disabled={!input}
-          type="submit"
-          onClick={addTodo}
-          variant="contained"
-          color="primary"
-        >
-          Add todo
-        </Button>
-      </form>
+          <Button
+            disabled={!input}
+            type="submit"
+            onClick={addTodo}
+            variant="contained"
+            color="primary"
+          >
+            Add todo
+          </Button>
+        </form>
+      </div>
       <FlipMove>
         <ul>
           {todos.map((todo) => (
