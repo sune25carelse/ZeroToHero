@@ -12,6 +12,7 @@ import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import db from "./firebase";
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
